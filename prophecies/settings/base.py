@@ -278,6 +278,9 @@ JSON_API_FORMAT_FIELD_NAMES = "camelize"
 
 USE_X_FORWARDED_HOST = env.bool("USE_X_FORWARDED_HOST", default=DEBUG)
 
+if env.bool("SECURE_PROXY_SSL_HEADER", default=False):
+    SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
+
 # Xemx configuration using python-socual-auth
 # https://python-social-auth.readthedocs.io
 
